@@ -1,0 +1,7 @@
+client:
+  directa24:
+    url: https://directa24-movies.wiremockapi.cloud/api/movies/search
+
+springdoc:
+  api-docs:
+    path: /api-docs
