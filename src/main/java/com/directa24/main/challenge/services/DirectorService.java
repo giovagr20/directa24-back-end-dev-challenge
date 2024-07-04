@@ -54,6 +54,7 @@ public class DirectorService {
         return directorMovieCount.entrySet().stream()
                 .filter(entry -> entry.getValue() >= threshold)
                 .map(Map.Entry::getKey)
+                .sorted()
                 .toList();
     }
 }

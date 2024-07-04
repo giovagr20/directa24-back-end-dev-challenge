@@ -26,7 +26,7 @@ class DirectorServiceTest {
     void givenDirectorService_whenCallExternalService_thenReturnlistOfDirectors() {
         final int threshold = 2;
         final int pageNumber = 2;
-        final List<String> expectedResult = List.of("WoodyAllen", "MartinScorsese");
+        final List<String> expectedResult = List.of("MartinScorsese", "WoodyAllen");
         Optional<MoviesDto> mockMoviesDto = MockData.getMockMoviesDto();
          Mockito.when(directa24Client.getMovies(pageNumber)).thenReturn(
                 mockMoviesDto);
