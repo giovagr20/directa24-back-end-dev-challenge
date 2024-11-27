@@ -32,14 +32,9 @@ public class DirectorService {
                 .orElseThrow(() -> new ResourceNotFoundException("There is no data from directa24 client service"));
     }
 
-//    private int getRandomPage() {
-//        Random random = new Random();
-//        return random.nextInt(3) + 1;
-//    }
-
     private List<String> getDirectorsGivenThreshold(MoviesDto moviesDtos,
                                                     int threshold) {
-        //First it is neccesary count movies per director
+
         Map<String, Long> directorMovieCount = moviesDtos.getData()
                 .stream()
                 .collect(Collectors.groupingBy(
@@ -50,7 +45,7 @@ public class DirectorService {
         if (directorMovieCount.isEmpty()) {
             throw new ResourceNotFoundException("There are no directors to count");
         }
-        //Then filter all directors with movies greater tha threshold
+
         return directorMovieCount.entrySet().stream()
                 .filter(entry -> entry.getValue() >= threshold)
                 .map(Map.Entry::getKey)

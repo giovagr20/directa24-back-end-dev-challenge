@@ -1,6 +1,6 @@
 client:
   directa24:
-    url: https://directa24-movies.wiremockapi.cloud/api/movies/search
+    url: https://eron-movies.wiremockapi.cloud/api/movies/search
 
 springdoc:
   api-docs:
