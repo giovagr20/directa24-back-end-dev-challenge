@@ -6,6 +6,7 @@ import feign.Response;
 import feign.codec.Decoder;
 import feign.codec.DecodeException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,7 +24,7 @@ public class MoviesDtoDecoder implements Decoder {
 
     @Override
     public Optional<MoviesDto> decode(Response response, java.lang.reflect.Type type) throws IOException, DecodeException {
-        if (response.status() == 200) {
+        if (response.status() == HttpStatus.OK.value()) {
             InputStream inputStream = response.body().asInputStream();
             String json = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
             MoviesDto moviesDto = objectMapper.readValue(json, MoviesDto.class);
